@@ -28,6 +28,8 @@ NOTE: The default port is set to `3000`. To change the port, adjust the `PORT` v
 
 To use this application, simply type what you like in the text editor window. The app will save your progress to the `IndexedDB` inside the browser (check out the application tab in Dev Tools). You can also choose to install the application to your local machine by pressing the `Install` button in the top left hand corner of the application.
 
+![PWA Text Editor Screenshot](./client/src/images/nav-pwa-screenshot.png)
+
 ## License
 
 MIT License
