@@ -2,9 +2,13 @@ import { Workbox } from "workbox-window";
 import Editor from "./editor";
 import "./database";
 import "../css/style.css";
+import Logo from "../images/logo.png";
 
 const main = document.querySelector("#main");
 main.innerHTML = "";
+
+document.getElementById("favicon").href = Logo;
+document.getElementById("navbar-icon").src = Logo;
 
 const loadSpinner = () => {
   const spinner = document.createElement("div");

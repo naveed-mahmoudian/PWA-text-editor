@@ -35,6 +35,8 @@ h1 {
 
 .navbar-brand img {
   padding-top: 10px;
+  width: 90px;
+  height: 90px;
 }
 
 .loading-spinner {
