@@ -15,10 +15,10 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
-      // new InjectManifest({
-      //   swSrc: "./src-sw.js",
-      //   swDest: "service-worker.js",
-      // }),
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "service-worker.js",
+      }),
       new WebpackPwaManifest({
         name: "Just Another Text Editor",
         short_name: "JATE",
