@@ -24,7 +24,7 @@ NOTE: The default port is set to `3000`. To change the port, adjust the `PORT` v
 
 ## Usage
 
-[Click Here for Deployed Application]()
+[Click Here for Deployed Application](https://nav-pwa-text-editor.herokuapp.com/)
 
 To use this application, simply type what you like in the text editor window. The app will save your progress to the `IndexedDB` inside the browser (check out the application tab in Dev Tools). You can also choose to install the application to your local machine by pressing the `Install` button in the top left hand corner of the application.
 
