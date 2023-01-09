@@ -25,6 +25,7 @@ module.exports = () => {
         description: "Just another PWA Text Editor",
         start_url: "./",
         publicPath: "./",
+        orientation: "portrait",
         display: "standalone",
         background_color: "#34a1eb",
         theme_color: "#ebae34",
@@ -33,6 +34,8 @@ module.exports = () => {
           {
             src: path.resolve("./src/images/logo.png"),
             sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+            purpose: "any",
           },
         ],
       }),
@@ -46,11 +49,15 @@ module.exports = () => {
       rules: [
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/transform-runtime",
+              ],
             },
           },
         },
@@ -59,7 +66,7 @@ module.exports = () => {
           type: "asset/resource",
         },
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: ["style-loader", "css-loader"],
         },
       ],

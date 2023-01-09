@@ -26,31 +26,6 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === "navigate", pageCache);
 
-// TODO: Implement asset caching
-// const assetCache = new CacheFirst({
-//   cacheName: "asset-cache",
-//   plugins: [
-//     new CacheableResponsePlugin({
-//       statuses: [0, 200],
-//     }),
-//     new ExpirationPlugin({
-//       maxAgeSeconds: 7 * 24 * 60 * 60,
-//     }),
-//   ],
-// });
-
-// registerRoute(({ request }) => request.destination === "image", assetCache);
-
-// registerRoute(
-//   ({ request }) => request.destination === "image",
-//   offlineFallback({
-//     cacheName: "asset-cache",
-//     cacheableResponse: {
-//       statuses: [0, 200],
-//     },
-//   })
-// );
-
 registerRoute(
   ({ request }) => request.destination === "image",
   new CacheFirst({
@@ -60,9 +35,22 @@ registerRoute(
         statuses: [0, 200],
       }),
       new ExpirationPlugin({
-        maxEntries: 6,
+        maxEntries: 10,
         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
       }),
     ],
   })
 );
+
+// Offline Fallback
+// registerRoute(
+//   ({ request }) => request.destination === "image",
+//   offlineFallback({
+//     cacheName: "image-cache",
+//     plugins: [
+//       new CacheableResponsePlugin({
+//         statuses: [0, 200],
+//       }),
+//     ],
+//   })
+// );
