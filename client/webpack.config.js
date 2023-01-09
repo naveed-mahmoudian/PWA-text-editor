@@ -23,17 +23,21 @@ module.exports = () => {
         name: "Just Another Text Editor",
         short_name: "JATE",
         description: "Just another PWA Text Editor",
+        start_url: "./",
+        publicPath: "./",
+        display: "standalone",
         background_color: "#34a1eb",
         theme_color: "#ebae34",
+        crossorigin: "use-credentials",
         icons: [
           {
-            src: path.resolve("src/images/logo.png"),
+            src: path.resolve("./src/images/logo.png"),
             sizes: [96, 128, 192, 256, 384, 512],
           },
         ],
       }),
       new HtmlWebpackPlugin({
-        title: "My PWA",
+        title: "JATE",
         template: "./index.html",
       }),
     ],
