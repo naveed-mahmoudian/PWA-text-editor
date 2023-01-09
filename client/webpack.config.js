@@ -15,10 +15,10 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
-      new InjectManifest({
-        swSrc: "./src-sw.js",
-        swDest: "service-worker.js",
-      }),
+      // new InjectManifest({
+      //   swSrc: "./src-sw.js",
+      //   swDest: "service-worker.js",
+      // }),
       new WebpackPwaManifest({
         name: "Just Another Text Editor",
         short_name: "JATE",
@@ -45,14 +45,18 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.js$/,
-          exclude: /node_modules/,
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
           use: {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
             },
           },
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
         },
         {
           test: /\.css$/,
