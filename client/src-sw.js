@@ -14,7 +14,7 @@ const pageCache = new CacheFirst({
       statuses: [0, 200],
     }),
     new ExpirationPlugin({
-      maxAgeSeconds: 30 * 24 * 60 * 60,
+      maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
     }),
   ],
 });
@@ -41,16 +41,3 @@ registerRoute(
     ],
   })
 );
-
-// Offline Fallback
-// registerRoute(
-//   ({ request }) => request.destination === "image",
-//   offlineFallback({
-//     cacheName: "image-cache",
-//     plugins: [
-//       new CacheableResponsePlugin({
-//         statuses: [0, 200],
-//       }),
-//     ],
-//   })
-// );
